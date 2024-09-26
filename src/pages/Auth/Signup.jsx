@@ -2,7 +2,7 @@ import { LockOutlined, UserOutlined, MailOutlined } from "@ant-design/icons";
 import { Button, Card, Flex, Form, Input } from "antd";
 import { Link } from "react-router-dom";
 function Signup() {
-  const onFinish = (values) => {
+  const onSignup = (values) => {
     console.log("Received values of form: ", values);
   };
   return (
@@ -29,7 +29,7 @@ function Signup() {
           style={{
             maxWidth: 360,
           }}
-          onFinish={onFinish}
+          onFinish={onSignup}
         >
           <Form.Item
             name="username"
@@ -48,7 +48,6 @@ function Signup() {
               {
                 type: "email",
                 required: true,
-                message: "Please input your Username!",
               },
             ]}
           >
@@ -75,7 +74,9 @@ function Signup() {
             <Button block type="primary" htmlType="submit">
               Signup
             </Button>
-            or <Link to={"/auth/login"}>Login now</Link>
+            <div style={{ marginTop: "10px" }}>
+              <Link to={"/auth/login"}>Login now</Link>
+            </div>
           </Form.Item>
         </Form>
       </Card>
